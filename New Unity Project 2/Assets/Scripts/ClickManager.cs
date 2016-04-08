@@ -18,7 +18,8 @@ public class ClickManager : MonoBehaviour {
 
             if(ray.collider != null)
             {
-                Destroy(ray.collider.gameObject);
+                if(ray.collider.gameObject.tag != "Player")
+                ray.collider.gameObject.SetActive(false);
             }
             print(ray.collider);
         }

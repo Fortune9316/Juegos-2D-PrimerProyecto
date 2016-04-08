@@ -11,12 +11,16 @@ public class MovingElement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Vector3 position = transform.position;
-        position.y -= 5f * Time.deltaTime;
-        transform.position = position;
-        if(limit.y>transform.position.y)
+        if (gameObject.activeInHierarchy)
         {
-            Destroy(gameObject);
+            Vector3 position = transform.position;
+            position.x -= 5f * Time.deltaTime;
+            transform.position = position;
+            if (limit.x > transform.position.x)
+            {
+                gameObject.SetActive(false);
+            }
         }
+        
 	}
 }
